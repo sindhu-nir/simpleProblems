@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author root
  */
 public class Problems {
-
+ 
     /**
      * @param args the command line arguments
      */
