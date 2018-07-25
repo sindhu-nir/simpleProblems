@@ -16,7 +16,10 @@ import javax.swing.JOptionPane;
  * @author root
  */
 public class Problems {
- 
+
+    static int n1 = 0, n2 = 1, n3 = 0;
+    static String output = "";
+
     /**
      * @param args the command line arguments
      */
@@ -28,11 +31,18 @@ public class Problems {
 //        mergeArray();
         int a[] = {2, 5, 3, 4, 6, 1};
         String b[] = {"b", "f", "a", "y", "z", "q"};
-//        sortingArrayWithoutBuiltFuction(a);
-        rvereseArray(b, 0, 5);
-        reverseString();
-        PalindroomeCheck();
-        checkPrimebetweenRange() ;
+        //        sortingArrayWithoutBuiltFuction(a);
+        //        rvereseArray(b, 0, 5);
+        //        reverseString();
+        //        PalindroomeCheck();
+        //        checkPrimebetweenRange();
+        //        toggleString("dHaKa CoXBazAaR");
+        //swapTwoNumbersWithout3rdVariable();
+        //fibonacciSeries();
+        output = n1 + " , " + n2;//printing 0 and 1 
+        fibonacciSerieswithrecursion(10 - 2);//n-2 because 2 numbers are already printed   
+        JFrame f = new JFrame();
+        JOptionPane.showMessageDialog(f, (output));
         System.exit(0);
     }
 
@@ -141,6 +151,7 @@ public class Problems {
     public static void PalindroomeCheck() {
         String input = "radar";
         String rev = "";
+        char a = input.charAt(0);
 
         // convert String to character array
         // by using toCharArray
@@ -188,4 +199,68 @@ public class Problems {
             }
         }
     }
+
+    public static String toggleString(String sentence) {
+        String toggled = "";
+        for (int i = 0; i < sentence.length(); i++) {
+
+            char letter = sentence.charAt(i);
+
+            if (Character.isUpperCase(sentence.charAt(i))) {
+                letter = Character.toLowerCase(letter);
+                toggled = toggled + letter;
+
+            } else if (Character.isLowerCase(sentence.charAt(i))) {
+                letter = Character.toUpperCase(letter);
+                toggled = toggled + letter;
+            }
+
+        }
+        JFrame f = new JFrame();
+        JOptionPane.showMessageDialog(f, (toggled));
+        return toggled;
+
+    }
+
+    public static void swapTwoNumbersWithout3rdVariable() {
+        int x = 10;
+        int y = 5;
+        x = x + y;
+        y = x - y;
+        x = x - y;
+        System.out.println("After swaping:"
+                + " x = " + x + ", y = " + y);
+        JFrame f = new JFrame();
+        JOptionPane.showMessageDialog(f, "Before Swaping x=10,y=5 \n After swaping:"
+                + " x = " + x + ", y = " + y);
+    }
+
+    public static void fibonacciSeries() {
+        int n1 = 0, n2 = 1, n3, i, count = 10;
+        String output = "";
+        output = n1 + " , " + n2;//printing 0 and 1  
+
+        for (i = 2; i < count; i++)//loop starts from 2 because 0 and 1 are already printed    
+        {
+            n3 = n1 + n2;
+            output = output + " , " + n3;
+            n1 = n2;
+            n2 = n3;
+        }
+        JFrame f = new JFrame();
+        JOptionPane.showMessageDialog(f, (output));
+    }
+
+    static void fibonacciSerieswithrecursion(int count) {
+
+        if (count > 0) {
+            n3 = n1 + n2;
+            n1 = n2;
+            n2 = n3;
+            output = output + " , " + n3;
+            fibonacciSerieswithrecursion(count - 1);
+        }
+
+    }
+
 }
